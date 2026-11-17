@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bushra Tarif</title>
+<meta name="description" content="Bushra Tarif — Lecturer, Data Science researcher and AI model trainer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --text: #222222;
+    --muted: #6c757d;
+    --accent: #2698ba;
+    --line: #e5e5e5;
+    --card: #f7f8fa;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1c1c1d; --text: #e8e8e8; --muted: #a0a4a8; --accent: #4fb6d6; --line: #333; --card: #252527;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1c1c1d; --text: #e8e8e8; --muted: #a0a4a8; --accent: #4fb6d6; --line: #333; --card: #252527;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: "Roboto", Helvetica, Arial, sans-serif; font-weight: 300;
+    font-size: 1rem; line-height: 1.6;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* Top navigation bar */
+  header {
+    position: sticky; top: 0; z-index: 10; background: var(--bg);
+    border-bottom: 1px solid var(--line);
+  }
+  nav {
+    max-width: 930px; margin: 0 auto; padding: 0.7rem 16px;
+    display: flex; justify-content: flex-end; align-items: center; gap: 1.2rem; flex-wrap: wrap;
+  }
+  nav a { color: var(--text); font-weight: 400; }
+  nav a.active, nav a:hover { color: var(--accent); text-decoration: none; }
+  #theme-toggle {
+    background: none; border: 0; cursor: pointer; color: var(--text);
+    font-size: 1.1rem; padding: 0; line-height: 1;
+  }
+
+  main { max-width: 930px; margin: 0 auto; padding: 2rem 16px 4rem; }
+
+  /* Name + subtitle */
+  .post-title { font-size: 2.6rem; font-weight: 300; margin: 0; line-height: 1.2; }
+  .post-title strong { font-weight: 700; }
+  .desc { margin: 0.3rem 0 1.5rem; color: var(--text); }
+
+  /* About: text on the left, photo on the right */
+  .about { display: flex; gap: 2rem; align-items: flex-start; }
+  .about-text { flex: 1; }
+  .profile { width: 280px; flex-shrink: 0; text-align: center; }
+  .profile img { width: 100%; border-radius: 6px; box-shadow: 0 2px 10px rgba(0,0,0,.15); }
+  .profile .contact { margin-top: 0.8rem; font-size: 0.95rem; }
+  .profile .contact a { margin: 0 0.4rem; }
+  .announce { font-weight: 500; }
+  @media (max-width: 720px) {
+    .about { flex-direction: column-reverse; }
+    .profile { width: 70%; max-width: 260px; margin: 0 auto; }
+    .post-title { font-size: 2.1rem; }
+  }
+
+  /* Section headings in al-folio style */
+  h2 {
+    font-family: "Roboto", sans-serif; font-weight: 300; font-size: 1.6rem;
+    color: var(--accent); margin: 2.8rem 0 1rem; text-transform: lowercase;
+  }
+  ul.plain { list-style: none; padding: 0; margin: 0; }
+
+  /* Research box */
+  .research {
+    background: var(--card); border-left: 3px solid var(--accent);
+    padding: 1rem 1.2rem; border-radius: 4px;
+  }
+  .research .title { font-weight: 500; }
+  .research p { margin: 0.4rem 0 0; }
+
+  /* Project list like publication list */
+  .item { display: flex; gap: 1rem; padding: 0.9rem 0; border-bottom: 1px solid var(--line); }
+  .item:last-child { border-bottom: 0; }
+  .badge {
+    flex-shrink: 0; width: 92px; height: fit-content; text-align: center;
+    background: var(--accent); color: #fff; font-size: 0.75rem; font-weight: 500;
+    border-radius: 3px; padding: 0.2rem 0.3rem;
+  }
+  .item .title { font-weight: 500; }
+  .item .meta { color: var(--muted); font-size: 0.93rem; }
+  .links { margin-top: 0.35rem; }
+  .links a {
+    display: inline-block; font-size: 0.72rem; font-weight: 500; letter-spacing: .03em;
+    border: 1px solid var(--text); color: var(--text); border-radius: 3px;
+    padding: 0.05rem 0.5rem; margin-right: 0.3rem;
+  }
+  .links a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+  /* Teaching table */
+  table { width: 100%; border-collapse: collapse; }
+  td { padding: 0.55rem 0.4rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+  td:first-child { font-weight: 500; width: 45%; }
+  td:last-child { color: var(--muted); }
+  @media (max-width: 560px) {
+    tr { display: block; border-bottom: 1px solid var(--line); padding: 0.4rem 0; }
+    td { display: block; border: 0; padding: 0.1rem 0; width: auto !important; }
+  }
+
+  .skills span {
+    display: inline-block; background: var(--card); border: 1px solid var(--line);
+    border-radius: 3px; padding: 0.1rem 0.55rem; margin: 0 0.3rem 0.4rem 0; font-size: 0.9rem;
+  }
+
+  footer {
+    border-top: 1px solid var(--line); color: var(--muted); font-size: 0.85rem;
+    text-align: center; padding: 1rem 16px;
+  }
+</style>
+</head>
+<body>
+<header>
+  <nav>
+    <a href="#about" class="active">about</a>
+    <a href="#research">research</a>
+    <a href="#projects">projects</a>
+    <a href="#teaching">teaching</a>
+    <a href="https://github.com/BushraTarif">github</a>
+    <button id="theme-toggle" aria-label="Switch light or dark mode" title="Switch light / dark mode">&#9788;</button>
+  </nav>
+</header>
+
+<main>
+  <section id="about">
+    <h1 class="post-title"><strong>Bushra</strong> Tarif</h1>
+    <p class="desc">Lecturer, Beaconhouse International College &middot; Data Science Researcher &middot; AI Model Trainer</p>
+
+    <div class="about">
+      <div class="about-text">
+        <p class="announce">I am open to fully funded PhD opportunities. Feel free to <a href="https://www.linkedin.com/in/bushra-tarif-a798232a0">connect with me on LinkedIn</a>.</p>
+
+        <p>I am a lecturer at <strong>Beaconhouse International College</strong> and an MS graduate. I teach Artificial Intelligence, Databases and Data Science, and I build and train AI models in my own research.</p>
+
+        <p>My research interests sit where people, data and the planet meet. I am interested in <strong>Human-Computer Interaction (HCI)</strong> and how people experience technology, in <strong>deep learning</strong> for real-world problems, and in <strong>remote sensing</strong> &mdash; using satellite and radar (SAR) imagery for climate and disaster response.</p>
+
+        <p>I believe the best way to understand a model is to build it, break it, and then explain it to a classroom. My motto: <em>teaching what I learn, learning what I teach.</em></p>
+
+        <p>You can find my code, notebooks and experiments on <a href="https://github.com/BushraTarif">GitHub</a>, and my problem-solving practice on <a href="https://leetcode.com/u/BushraTarif/">LeetCode</a>.</p>
+      </div>
+
+      <div class="profile">
+        <img src="https://github.com/BushraTarif.png?size=460" alt="Photo of Bushra Tarif">
+        <div class="contact">
+          <a href="https://github.com/BushraTarif">GitHub</a>
+          <a href="https://www.linkedin.com/in/bushra-tarif-a798232a0">LinkedIn</a>
+          <a href="https://leetcode.com/u/BushraTarif/">LeetCode</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="research">
+    <h2>current research</h2>
+    <div class="research">
+      <div class="title">Multimodal Deep Learning for Probabilistic Flood Forecasting Using Hydrological, Meteorological, and Satellite Data</div>
+      <p>Combining river data, weather data and satellite images in one deep learning model to predict floods, with an estimate of how certain each prediction is.</p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>selected projects</h2>
+    <ul class="plain">
+      <li class="item">
+        <div class="badge">Satellite</div>
+        <div>
+          <div class="title">Ship Congestion Using Satellite Imagery</div>
+          <div class="meta">Detecting ship congestion in busy ports and waterways from satellite images, to help with better planning.</div>
+          <div class="links"><a href="https://github.com/BushraTarif/Ship-Congestion-Using-Satellite-Imagery">CODE</a></div>
+        </div>
+      </li>
+      <li class="item">
+        <div class="badge">Computer Vision</div>
+        <div>
+          <div class="title">Body Measurements Depth Analysis</div>
+          <div class="meta">Estimating human body measurements from depth data.</div>
+          <div class="links"><a href="https://github.com/BushraTarif/BodyMeasurements_DepthAnalysis">CODE</a></div>
+        </div>
+      </li>
+      <li class="item">
+        <div class="badge">SAR</div>
+        <div>
+          <div class="title">Sentinel-1 SAR Flood Mapping</div>
+          <div class="meta">Mapping flooded areas with Sentinel-1 radar imagery. <em>Coming soon.</em></div>
+        </div>
+      </li>
+      <li class="item">
+        <div class="badge">Deep Learning</div>
+        <div>
+          <div class="title">Multimodal Flood Forecasting</div>
+          <div class="meta">A deep learning model for probabilistic flood forecasting. <em>In progress.</em></div>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section id="teaching">
+    <h2>teaching</h2>
+    <p>Courses I teach at Beaconhouse International College:</p>
+    <table>
+      <tr><td>Introduction to Artificial Intelligence</td><td>Search, machine learning basics, neural networks</td></tr>
+      <tr><td>Databases, Networks and the Web</td><td>SQL, web applications, how the internet works</td></tr>
+      <tr><td>Databases and Advanced Data Techniques</td><td>Advanced SQL, NoSQL, data modelling</td></tr>
+      <tr><td>Data Science</td><td>Data cleaning, analysis, visualisation, machine learning</td></tr>
+    </table>
+  </section>
+
+  <section id="skills">
+    <h2>skills</h2>
+    <div class="skills">
+      <span>Python</span><span>SQL</span><span>Pandas</span><span>NumPy</span>
+      <span>PyTorch</span><span>TensorFlow</span><span>scikit-learn</span>
+      <span>Jupyter</span><span>Kaggle</span><span>Git &amp; GitHub</span>
+    </div>
+  </section>
+</main>
+
+<footer>
+  &copy; <span id="year"></span> Bushra Tarif. Hosted by GitHub Pages.
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  // Light / dark mode switch (remembers your choice in this browser)
+  (function () {
+    var root = document.documentElement, btn = document.getElementById('theme-toggle');
+    try { var saved = localStorage.getItem('theme'); if (saved) root.setAttribute('data-theme', saved); } catch (e) {}
+    function isDark() {
+      var t = root.getAttribute('data-theme');
+      return t ? t === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    function icon() { btn.innerHTML = isDark() ? '&#9788;' : '&#9790;'; }
+    icon();
+    btn.addEventListener('click', function () {
+      var next = isDark() ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+      icon();
+    });
+  })();
+</script>
+</body>
+</html>
